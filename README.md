@@ -1,16 +1,23 @@
 # CORRECT ME!
 
-## Usage
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 This app is created to assist language learners with their writing issues, especially the spelling of words. It supports all the languages supported by Google Translate.
 
+**Supported OS: Linux, Windows**
+
 ## Installation
 
-The program itself does not require any installation. To run it, Python should be installed on the system. (The latest stable version is preferable.)
+The program itself does not require any installation.
+
+### Requirements
+
+To run it, [Python](https://www.python.org) should be installed on the system. (The latest stable version is preferable.)
 
 The following Python packages are required:
-- gTTS
-- playsound
+
+- [gTTS](https://pypi.org/project/gTTS)
+- [playsound](https://pypi.org/project/playsound)
 
 Use the following commands to install the packages:
 
