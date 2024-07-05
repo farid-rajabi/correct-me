@@ -4,8 +4,8 @@ import utils
 
 
 print('CORRECT ME!\n\
-Open-source and free, available on GitHub: https://github.com/faridrjb/correct-me\n\
-Written by Farid Rajabi (https://github.com/faridrjb).')
+Open-source and free, available on GitHub: https://github.com/farid-rajabi/correct-me\n\
+Written by Farid Rajabi (https://github.com/farid-rajabi).')
 time.sleep(2)
 utils.splitter2()
 utils.attention_banner()
