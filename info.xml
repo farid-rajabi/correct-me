@@ -1,0 +1,10 @@
+<info>
+    <app>
+        <name>Correct Me!</name>
+        <ver>1.0.1</ver>
+        <repo>https://github.com/farid-rajabi/correct-me</repo>
+    </app>
+    <dev>
+        <d name="Farid Rajabi" github="https://github.com/farid-rajabi"></d>
+    </dev>
+</info>
