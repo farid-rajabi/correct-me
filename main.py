@@ -1,11 +1,30 @@
 import time
+import xml.etree.ElementTree as ET
 from teacher import Teacher
 import utils
 
+tree = ET.parse('./info.xml')
+root = tree.getroot()
 
-print('CORRECT ME!\n\
-Open-source and free, available on GitHub: https://github.com/farid-rajabi/correct-me\n\
-Written by Farid Rajabi (https://github.com/farid-rajabi).')
+app_name = root.find('app').findtext('name')
+app_ver = root.find('app').findtext('ver')
+app_repo = root.find('app').findtext('repo')
+dev_name = root.find('dev')[0].get('name')
+dev_github = root.find('dev')[0].get('github')
+
+name_banner = ['   _____                         _     __  __      _ ',
+               '  / ____|                       | |   |  \/  |    | |',
+               ' | |     ___  _ __ _ __ ___  ___| |_  | \  / | ___| |',
+               ' | |    / _ \| \'__  \'__/ _ \/ __| __| | |\/| |/ _ \ |',
+               ' | |___| (_) | |  | | |  __/ (__| |_  | |  | |  __/_|',
+               '  \_____\___/|_|  |_|  \___|\___|\__| |_|  |_|\___(_)',
+               '                                                     ']
+for line in name_banner:
+    print(line)
+
+print('{} ({})'.format(app_name, app_ver))
+print('Open-source and free, available on GitHub: {}'.format(app_repo))
+print('Written by {} ({}).'.format(dev_name, dev_github))
 time.sleep(2)
 utils.splitter2()
 utils.attention_banner()
