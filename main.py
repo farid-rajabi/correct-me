@@ -3,7 +3,12 @@ import xml.etree.ElementTree as ET
 from teacher import Teacher
 import utils
 
-tree = ET.parse('./info.xml')
+
+try:
+    tree = ET.parse('./info.xml')
+except FileNotFoundError:
+    print('File not found: info.xml')
+    exit(1)
 root = tree.getroot()
 
 app_name = root.find('app').findtext('name')
