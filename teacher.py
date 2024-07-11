@@ -37,6 +37,7 @@ class Teacher:
         return items
 
     def read_check(self):
+        self.err_list = []
         for item in self.items_list:
             self.play_audio_file(item)
             while True:
@@ -47,10 +48,21 @@ class Teacher:
                     self.play_audio_file(item)
                 else:
                     print('Correct:', item)
+                    self.err_list.append(item)
                     break
             utils.splitter()
         print('The file is over...')
         utils.splitter2()
+        if len(self.err_list) > 0:
+            utils.splitter2()
+            print('Errors:')
+            print('\t' + ' - '.join(self.err_list))
+            utils.splitter()
+            save_bool = True if input(
+                'Do you want to save the errors? [Y / n]: ').lower() == 'y' else False
+            if save_bool:
+                self.save_errors()
+            utils.splitter2()
 
     def play_audio_file(
         self,
@@ -80,3 +92,18 @@ class Teacher:
             print('Remove the file before running the app again!')
             exit(1)
         playsound(audio_file_loc)
+
+    def save_errors(self):
+        while True:
+            err_file_loc = input('Enter the path to save the file: ')
+            try:
+                with open(file=err_file_loc, mode='x') as file:
+                    file.writelines('\n'.join(self.err_list))
+                print('The file is saved!')
+                break
+            except FileExistsError:
+                print('The file exists! Try another name...')
+                continue
+            except FileNotFoundError:
+                print('The created file not found!')
+                continue
