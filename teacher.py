@@ -1,4 +1,4 @@
-from os.path import isfile, isdir
+from os.path import isfile, isdir, getsize
 from os import getcwd, makedirs
 from platform import system
 from gtts import gTTS
@@ -25,7 +25,7 @@ class Teacher:
                 items = [item.rstrip() for item in file]
         except FileNotFoundError:
             utils.splitter()
-            print('The file is not found!')
+            print('File not found!')
             exit(1)
         if len(items) == 0:
             utils.splitter()
@@ -71,12 +71,11 @@ class Teacher:
             try:
                 audio_file = gTTS(text=item, lang=self.file_lang, slow=False)
             except ValueError:
-                print('Language code is not supported!')
+                print('The entered language code is not defined!')
                 exit(1)
             audio_file.save(audio_file_loc)
+        if getsize(audio_file_loc) == 0:
+            print('The audio file is empty:', audio_file_loc)
+            print('Remove the file before running the app again!')
+            exit(1)
         playsound(audio_file_loc)
-
-
-class TeacherException(Exception):
-    def __init__(self, message) -> None:
-        super().__init__(message)
