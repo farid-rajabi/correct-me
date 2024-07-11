@@ -65,7 +65,8 @@ class Teacher:
             exit(1)
         if not isdir(audio_dir_loc):
             makedirs(audio_dir_loc)
-        audio_file_name = item.replace(' ', '_') + '.mp3'
+        audio_file_name = self.file_lang + \
+            '_' + item.replace(' ', '_') + '.mp3'
         audio_file_loc = audio_dir_loc + audio_file_name
         if not isfile(audio_file_loc):
             try:
