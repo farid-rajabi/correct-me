@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.1 (2024-07-??)
+
+### Added
+
+- Added the `Screenshots` section to `README.md`.
+
+### Fixed
+
+- Updated the version number.
+- Removed a redundant splitter.
+
 ## 1.1.0 (2024-07-11)
 
 ### Added
