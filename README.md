@@ -6,6 +6,12 @@ This app is created to assist language learners with their writing issues, espec
 
 **Supported OS: Linux, Windows**
 
+## Screenshots
+
+![](./screenshots/1.png)
+
+![](./screenshots/2.png)
+
 ## Installation
 
 The program itself does not require any installation.
