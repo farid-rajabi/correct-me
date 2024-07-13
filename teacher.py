@@ -54,7 +54,6 @@ class Teacher:
         print('The file is over...')
         utils.splitter2()
         if len(self.err_list) > 0:
-            utils.splitter2()
             print('Errors:')
             print('\t' + ' - '.join(self.err_list))
             utils.splitter()
