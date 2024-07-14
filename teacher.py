@@ -25,14 +25,14 @@ class Teacher:
                 items = [item.rstrip() for item in file]
         except FileNotFoundError:
             utils.splitter()
-            print('File not found!')
+            utils.adv_print('File not found!', ['RED'])
             exit(1)
         if len(items) == 0:
             utils.splitter()
-            print('The file is empty!')
+            utils.adv_print('The file is empty!', ['CYAN'])
             exit(0)
         utils.splitter()
-        print('The file is loaded...')
+        utils.adv_print('The file is loaded...', ['CYAN'])
         utils.splitter2()
         return items
 
@@ -47,11 +47,16 @@ class Teacher:
                 elif user_input == '-RPT':
                     self.play_audio_file(item)
                 else:
-                    print('Correct:', item)
+                    print('Correct: {}{}{}{}'.format(
+                        utils.STYLES.get('UNDERLINE'),
+                        utils.STYLES.get('GREEN'),
+                        item,
+                        utils.STYLES.get('END')
+                    ))
                     self.err_list.append(item)
                     break
             utils.splitter()
-        print('The file is over...')
+        utils.adv_print('The file is over...', ['CYAN'])
         utils.splitter2()
         if len(self.err_list) > 0:
             print('Errors:')
@@ -72,7 +77,7 @@ class Teacher:
         elif self.os == 'Windows':
             audio_dir_loc = getcwd() + '\\Audio\\'
         else:
-            print('The current OS is not defined!')
+            utils.adv_print('The current OS is not defined!', ['RED'])
             exit(1)
         if not isdir(audio_dir_loc):
             makedirs(audio_dir_loc)
@@ -83,12 +88,15 @@ class Teacher:
             try:
                 audio_file = gTTS(text=item, lang=self.file_lang, slow=False)
             except ValueError:
-                print('The entered language code is not defined!')
+                utils.adv_print('The entered language code is not defined!',
+                                ['RED'])
                 exit(1)
             audio_file.save(audio_file_loc)
         if getsize(audio_file_loc) == 0:
-            print('The audio file is empty:', audio_file_loc)
-            print('Remove the file before running the app again!')
+            utils.adv_print('The audio file is empty: {}'.format(
+                audio_file_loc), ['RED'])
+            utils.adv_print('Remove the file before running the app again!',
+                            ['RED'])
             exit(1)
         playsound(audio_file_loc)
 
@@ -98,11 +106,14 @@ class Teacher:
             try:
                 with open(file=err_file_loc, mode='x') as file:
                     file.writelines('\n'.join(self.err_list))
-                print('The file is saved!')
+                utils.adv_print('The file is saved!',
+                                ['CYAN'])
                 break
             except FileExistsError:
-                print('The file exists! Try another name...')
+                utils.adv_print('The file exists! Try another name...',
+                                ['RED'])
                 continue
             except FileNotFoundError:
-                print('The created file not found!')
+                utils.adv_print('The created file not found!',
+                                ['RED'])
                 continue
