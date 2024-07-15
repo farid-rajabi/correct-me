@@ -59,7 +59,7 @@ class Teacher:
         utils.adv_print('The file is over...', ['CYAN'])
         utils.splitter2()
         if len(self.err_list) > 0:
-            print('Errors:')
+            utils.adv_print('Errors:', ['BOLD', 'RED'])
             print('\t' + ' - '.join(self.err_list))
             utils.splitter()
             save_bool = True if input(
