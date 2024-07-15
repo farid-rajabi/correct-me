@@ -8,9 +8,13 @@ This app is created to assist language learners with their writing issues, espec
 
 ## Screenshots
 
-![](./screenshots/1.png)
+<p align="center">
+<img src="./screenshots/1.png" alt="Screenshot 1" width="500"/>
+</p>
 
-![](./screenshots/2.png)
+<p align="center">
+<img src="./screenshots/2.png" alt="Screenshot 2" width="500"/>
+</p>
 
 ## Installation
 
