@@ -1,10 +1,13 @@
 # Changelog
 
-## 1.1.1 (2024-07-??)
+## 1.2.0 (2024-07-15)
 
 ### Added
 
-- Added the `Screenshots` section to `README.md`.
+- Added style and color to the app.
+- **Feature**: Checking the latest version available at the start of the app.
+
+## 1.1.1 (2024-07-13)
 
 ### Fixed
 
@@ -31,10 +34,6 @@
 - Removed the `Audio` folder to be created automatically on the first run.
 
 ## 1.0.1 (2024-07-05)
-
-### Added
-
-- Added more info to `README.md`.
 
 ### Fixed
 
