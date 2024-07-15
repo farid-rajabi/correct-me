@@ -1,7 +1,7 @@
-import time
 import xml.etree.ElementTree as ET
 from teacher import Teacher
 import utils
+import vercheck
 
 
 try:
@@ -25,16 +25,21 @@ name_banner = ['   _____                         _     __  __      _ ',
                '  \_____\___/|_|  |_|  \___|\___|\__| |_|  |_|\___(_)',
                '                                                     ']
 for line in name_banner:
-    print(line)
+    utils.adv_print(line, ['BOLD'])
 
-print('{} ({})'.format(app_name, app_ver))
+print('{}{}{} ({})'.format(utils.STYLES.get('BOLD'),
+                           app_name,
+                           utils.STYLES.get('END'),
+                           app_ver))
 print('Open-source and free, available on {}GitHub: {}{}'.format(utils.STYLES.get('BOLD'),
                                                                  app_repo,
                                                                  utils.STYLES.get('END')))
 print('Written by {}{} ({}){}.'.format(utils.STYLES.get('BOLD'),
                                        dev_name, dev_github,
                                        utils.STYLES.get('END')))
-time.sleep(2)
+utils.splitter()
+ver_checker = vercheck.VerCheck()
+ver_checker.version_banner()
 utils.splitter2()
 utils.attention_banner()
 utils.splitter()
