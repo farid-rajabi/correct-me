@@ -38,6 +38,8 @@ pip install playsound
 
 If you are using a Linux distribution with Python3 on it, you might try `pip3` instead of `pip`.
 
+Prior to installing `playsound`, take a look at the [Troubleshoot](#troubleshoot) section.
+
 ## How to Use
 
 1. Create a text file (the extension is optional) and write the words/phrases you want to practice their spelling.
@@ -48,3 +50,22 @@ If you are using a Linux distribution with Python3 on it, you might try `pip3` i
 3. Read the Attention and Help section before proceeding.
 4. Specify the text file by its location and the language.
 5. Write what you hear and then press Enter.
+
+## Troubleshoot
+
+It is possible to encounter with the following error while trying to install `playsound`.
+
+```
+Collecting playsound
+Downloading playsound-1.3.0.tar.gz (7.7 kB)
+Installing build dependencies ... done 
+Getting requirements to build wheel ... error
+error: subprocess-exited-with-error
+```
+
+In order to [solve](https://stackoverflow.com/questions/76078698/how-to-fix-oserror-could-not-get-source-code-error-when-installing-playsound) it, run the following commands, and then try `pip install playsound` again.
+
+```
+pip install --upgrade wheel
+pip install setuptools
+```
