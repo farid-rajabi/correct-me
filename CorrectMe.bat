@@ -1,2 +1,3 @@
-cls
-python main.py
+CLS
+CD .
+python .\bin\main.py
