@@ -1,3 +1,3 @@
 CLS
 CD .
-python .\bin\main.py
+python -W ignore .\bin\main.py
