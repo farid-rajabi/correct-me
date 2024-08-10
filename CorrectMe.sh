@@ -1,4 +1,5 @@
 #!/bin/bash
 
 clear
-python3 main.py
+cd .
+python3 ./bin/main.py
