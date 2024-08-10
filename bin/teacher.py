@@ -11,7 +11,7 @@ class Teacher:
     def __init__(
         self
     ) -> None:
-        self.os = system()
+        self.OS = system()
         self.items_list = self.load_file()
 
     def load_file(self) -> list[str]:
@@ -47,12 +47,15 @@ class Teacher:
                 elif user_input == '-RPT':
                     self.play_audio_file(item)
                 else:
-                    print('Correct: {}{}{}{}'.format(
-                        utils.STYLES.get('UNDERLINE'),
-                        utils.STYLES.get('GREEN'),
-                        item,
-                        utils.STYLES.get('END')
-                    ))
+                    if self.OS == 'Linux':
+                        print('Correct: {}{}{}{}'.format(
+                            utils.STYLES.get('UNDERLINE'),
+                            utils.STYLES.get('GREEN'),
+                            item,
+                            utils.STYLES.get('END')
+                        ))
+                    elif self.OS == 'Windows':
+                        print('Correct: {}'.format(item))
                     self.err_list.append(item)
                     break
             utils.splitter()
@@ -72,9 +75,9 @@ class Teacher:
         self,
         item: str
     ):
-        if self.os == 'Linux':
+        if self.OS == 'Linux':
             audio_dir_loc = getcwd() + '/Audio/'
-        elif self.os == 'Windows':
+        elif self.OS == 'Windows':
             audio_dir_loc = getcwd() + '\\Audio\\'
         else:
             utils.adv_print('The current OS is not defined!', ['RED'])

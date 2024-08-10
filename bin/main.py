@@ -1,11 +1,16 @@
+from platform import system
 import xml.etree.ElementTree as ET
 from teacher import Teacher
 import utils as utils
 import vercheck as vercheck
 
+OS = system()
 
 try:
-    tree = ET.parse('./info.xml')
+    if OS == 'Linux':
+        tree = ET.parse('./info.xml')
+    elif OS == 'Windows':
+        tree = ET.parse('.\\info.xml')
 except FileNotFoundError:
     utils.adv_print('File not found: info.xml', ['RED'])
     exit(1)
@@ -27,16 +32,22 @@ name_banner = ['   _____                         _     __  __      _ ',
 for line in name_banner:
     utils.adv_print(line, ['BOLD'])
 
-print('{}{}{} ({})'.format(utils.STYLES.get('BOLD'),
-                           app_name,
-                           utils.STYLES.get('END'),
-                           app_ver))
-print('Open-source and free, available on {}GitHub: {}{}'.format(utils.STYLES.get('BOLD'),
-                                                                 app_repo,
-                                                                 utils.STYLES.get('END')))
-print('Written by {}{} ({}){}.'.format(utils.STYLES.get('BOLD'),
-                                       dev_name, dev_github,
-                                       utils.STYLES.get('END')))
+if OS == 'Linux':
+    print('{}{}{} ({})'.format(utils.STYLES.get('BOLD'),
+                               app_name,
+                               utils.STYLES.get('END'),
+                               app_ver))
+    print('Open-source and free, available on {}GitHub: {}{}'.format(utils.STYLES.get('BOLD'),
+                                                                     app_repo,
+                                                                     utils.STYLES.get('END')))
+    print('Written by {}{} ({}){}.'.format(utils.STYLES.get('BOLD'),
+                                           dev_name, dev_github,
+                                           utils.STYLES.get('END')))
+elif OS == 'Windows':
+    print('{} ({})'.format(app_name, app_ver))
+    print('Open-source and free, available on GitHub: {}'.format(app_repo))
+    print('Written by {} ({}).'.format(dev_name, dev_github))
+
 utils.splitter()
 ver_checker = vercheck.VerCheck()
 ver_checker.version_banner()

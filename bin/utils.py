@@ -1,4 +1,5 @@
 from os import get_terminal_size
+from platform import system
 import gtts
 import utils as utils
 
@@ -15,21 +16,28 @@ STYLES = {
     'UNDERLINE': '\033[4m',
     'END': '\033[0m'
 }
+ATTENTION_BANNER = '\tRun the program from its own folder, otherwise, the audio files will be dislocated.'
+HELP_BANNER = '\tFirst, enter the absolute path of the file, and then specify the language using its corresponding tag (en, it, fr, etc.).\n\t\
+Enter -RPT to replay the audio file.'
+OS = system()
 
 
 def attention_banner():
-    utils.adv_print('Attention:',
-                    ['BOLD', 'YELLOW'])
-    utils.adv_print('\tRun the program from its own folder, otherwise, the audio files will be dislocated.',
-                    ['YELLOW'])
+    if OS == 'Linux':
+        utils.adv_print('Attention:', ['BOLD', 'YELLOW'])
+        utils.adv_print(ATTENTION_BANNER, ['YELLOW'])
+    elif OS == 'Windows':
+        print('Attention:')
+        print(ATTENTION_BANNER)
 
 
 def help_banner():
-    utils.adv_print('Help:',
-                    ['BOLD', 'CYAN'])
-    utils.adv_print('\tFirst, enter the absolute path of the file, and then specify the language using its corresponding tag (en, it, fr, etc.).\n\t\
-Enter -RPT to replay the audio file.',
-                    ['CYAN'])
+    if OS == 'Linux':
+        utils.adv_print('Help:', ['BOLD', 'CYAN'])
+        utils.adv_print(HELP_BANNER, ['CYAN'])
+    elif OS == 'Windows':
+        print('Help:')
+        print(HELP_BANNER)
 
 
 def supported_langs():
@@ -55,6 +63,9 @@ def adv_print(
     text: str,
     style: list[str]
 ):
-    for st in style:
-        text = STYLES.get(st, '') + text
-    print(text + STYLES.get('END'))
+    if OS == 'Linux':
+        for st in style:
+            text = STYLES.get(st, '') + text
+        print(text + STYLES.get('END'))
+    elif OS == 'Windows':
+        print(text)

@@ -1,3 +1,4 @@
+from platform import system
 import requests
 import xml.etree.ElementTree as ET
 import utils as utils
@@ -6,6 +7,7 @@ import utils as utils
 class VerCheck:
 
     def __init__(self) -> None:
+        self.OS = system()
         self.LATEST_URL = 'https://raw.githubusercontent.com/farid-rajabi/correct-me/main/info.xml'
         try:
             utils.adv_print('Retrieving the latest version info...', ['CYAN'])
@@ -31,12 +33,16 @@ class VerCheck:
         else:
             utils.adv_print('A newer version is available!',
                             ['UNDERLINE', 'GREEN'])
-            sec_1 = '{}[{}]{}'.format(utils.STYLES.get('RED'),
-                                      self.CURRENT_VER,
-                                      utils.STYLES.get('END'))
-            sec_2 = '{}[{}]{}'.format(utils.STYLES.get('GREEN'),
-                                      self.LATEST_VER,
-                                      utils.STYLES.get('END'))
+            if self.OS == 'Linux':
+                sec_1 = '{}[{}]{}'.format(utils.STYLES.get('RED'),
+                                          self.CURRENT_VER,
+                                          utils.STYLES.get('END'))
+                sec_2 = '{}[{}]{}'.format(utils.STYLES.get('GREEN'),
+                                          self.LATEST_VER,
+                                          utils.STYLES.get('END'))
+            elif self.OS == 'Windows':
+                sec_1 = '[{}]'.format(self.CURRENT_VER)
+                sec_2 = '[{}]'.format(self.LATEST_VER)
             print(sec_1 + ' -> ' + sec_2)
             utils.adv_print(
                 'Download: https://github.com/farid-rajabi/correct-me/releases/tag/v{}'.format(
