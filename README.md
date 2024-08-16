@@ -4,7 +4,7 @@
 
 This app is created to assist language learners with their writing issues, especially the spelling of words. It supports all the languages supported by Google Translate.
 
-**Supported OS: Linux, Windows**
+**Available on Linux and Windows.**
 
 ## Screenshots
 
@@ -18,42 +18,128 @@ This app is created to assist language learners with their writing issues, espec
 
 ## Installation
 
-The program itself does not require any installation.
+Regardless of the method that you choose to install the app, [Python 3.x](https://www.python.org) should be installed on your system. (The latest stable version is preferable.)
 
-### Requirements
+You can decide whether to install it using [*Correct Me! Installer*](https://github.com/farid-rajabi/correct-me-installer) or do it [manually](#manual).
 
-To run it, [Python](https://www.python.org) should be installed on the system. (The latest stable version is preferable.)
+### Correct Me! Installer
 
-The following Python packages are required:
+1. Download the [latest release of *Correct Me! Installer*](https://github.com/farid-rajabi/correct-me-installer/releases/latest).
 
-- [gTTS](https://pypi.org/project/gTTS)
-- [playsound](https://pypi.org/project/playsound)
+2. Extract it and put the directory wherever you want.
 
-Use the following commands to install the packages:
+> [!NOTE]
+> The installation requires internet connection.
 
-```
-pip install gTTS
-pip install playsound
-```
+> [!IMPORTANT]
+> Read the [*Requirements* section of *Correct Me! Installer*](https://github.com/farid-rajabi/correct-me-installer) before proceeding to the next step.
 
-If you are using a Linux distribution with Python3 on it, you might try `pip3` instead of `pip`.
+3. If you are on **Linux**:
 
-Prior to installing `playsound`, take a look at the [Troubleshoot](#troubleshoot) section.
+    1. Right click on *installer-linux.sh*, then click on *Run as a Program*.
+
+    2. Wait until the *Installation is completed* message is printed in the terminal.
+
+   If you are on **Windows**:
+
+    1. Double click on *installer-windows.bat*.
+
+    2. Wait until the *Installation is completed* message is printed in the cmd/powershell.
+
+> [!TIP]
+> Do not ignore the log. In case a problem occurs, the solution will be printed for you.
+
+### Manual
+
+1. The following Python packages are required:
+
+    - [gTTS](https://pypi.org/project/gTTS)
+    - [playsound](https://pypi.org/project/playsound)
+
+    Use the following commands to download and install the packages:
+
+    ```
+    pip install gTTS
+    pip install playsound
+    ```
+
+> [!TIP]
+> If you are using Python 3.x, you might have *pip3* instead of *pip* depending on your OS.
+
+> [!TIP]
+> In case the installation of *playsound* goes wrong, take a look at the [*Troubleshoot* section](#troubleshoot).
+
+2. Download the [latest release of *Correct Me!*](https://github.com/farid-rajabi/correct-me/releases/latest). Extract it and put the directory wherever you want.
+
+3. If you are on **Linux**:
+
+    1. Open the app directory.
+
+    2. Open *CorrectMe.sh* with a text editor.
+
+    3. Change the line
+
+        ```sh
+        cd .
+        ```
+
+        to
+
+        ```sh
+        cd "/path/to/correct-me/dir"
+        ```
+
+        where `/path/to/correct-me/dir` is the absolute path of the *Correct Me!* root directory.
+
+    4. Create a shortcut to *CorrectMe.sh*.
+
+   If you are on **Windows**:
+
+    1. Open the app folder.
+
+    2. Open *CorrectMe.bat* with a text editor.
+
+    3. Change the line
+
+        ```bat
+        CD .
+        ```
+
+        with
+
+        ```bat
+        CD "\path\to\correct-me\dir"
+        ```
+
+        where `\path\to\correct-me\dir` is the absolute path of the *Correct Me!* root folder.
+
+    4. Create a shortcut to *CorrectMe.bat*.
+
+> [!WARNING]
+> Like what you see above, double quotation marks should surround the path, avoiding any possible issues due to spaces in the path.
 
 ## How to Use
 
-1. Create a text file (the extension is optional) and write the words/phrases you want to practice their spelling.
+1. Create a text file. (The extension is optional.)
+
+2. Write the words/phrases you want to practice their spelling in it.
+
 2. Run the program.
-    - If you are on Linux, run `CorrectMe.sh`.
-    - If you are on Windows, run `CorrectMe.bat`. \
-    THE PROGRAM REQUIRES INTERNET CONNECTION, UNLESS YOU HAVE GONE THROUGH THE FILE SPECIFIED IN STEP 1 AT LEAST ONCE AND HAVE NOT CHANGED IT.
-3. Read the Attention and Help section before proceeding.
+
+> [!NOTE]
+> The app requires internet connection, UNLESS you have gone the file specified in step 1 AT LEAST ONCE AND HAVE NOT CHANGED IT.
+
+3. Read the Attention and Help banners before proceeding.
+
 4. Specify the text file by its location and the language.
-5. Write what you hear and then press Enter.
+
+5. Write what you hear and then press *Enter*.
 
 ## Troubleshoot
 
-It is possible to encounter with the following error while trying to install `playsound`.
+### *playsound* Installation Failed
+
+It is possible to encounter with the following error while trying to install *playsound* manually.
 
 ```
 Collecting playsound
@@ -63,9 +149,15 @@ Getting requirements to build wheel ... error
 error: subprocess-exited-with-error
 ```
 
-In order to [solve](https://stackoverflow.com/questions/76078698/how-to-fix-oserror-could-not-get-source-code-error-when-installing-playsound) it, run the following commands, and then try `pip install playsound` again.
+Do what follows to solve the problem:
 
-```
-pip install --upgrade wheel
-pip install setuptools
-```
+1. Run the following commands.
+
+    ```
+    pip install --upgrade wheel
+    pip install setuptools
+    ```
+
+2. Try `pip install playsound` again.
+
+Thanks to [Christopher](https://stackoverflow.com/a/77231478/14265483).
