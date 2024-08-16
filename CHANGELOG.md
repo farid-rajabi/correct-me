@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.3.0 (2024-08-16)
+
+### Added
+
+- Added the app icon.
+
+### Changed
+
+- Restructured the application.
+
+### Fixed
+
+- Fixed the *playsound* error on Windows.
+- Hid the `SyntaxWarning`s on Windows.
+- Windows outputs will not have any styles.
+
 ## 1.2.0 (2024-07-15)
 
 ### Added
@@ -31,7 +47,7 @@
 
 ### Removed
 
-- Removed the `Audio` folder to be created automatically on the first run.
+- Removed the *Audio* folder to be created automatically on the first run.
 
 ## 1.0.1 (2024-07-05)
 
