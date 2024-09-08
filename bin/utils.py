@@ -69,3 +69,8 @@ def adv_print(
         print(text + STYLES.get('END'))
     elif OS == 'Windows':
         print(text)
+
+
+def exit(code: int):
+    input('Press Enter to exit...')
+    exit(code)
