@@ -27,12 +27,12 @@ class Teacher:
         except FileNotFoundError:
             utils.splitter()
             utils.adv_print('File not found!', ['RED'])
-            exit(1)
+            utils.exit(1)
         # If the file is empty
         if len(items) == 0:
             utils.splitter()
             utils.adv_print('The file is empty!', ['CYAN'])
-            exit(0)
+            utils.exit(0)
         utils.splitter()
         utils.adv_print('The file is loaded...', ['CYAN'])
         utils.splitter2()
@@ -95,7 +95,7 @@ class Teacher:
             audio_dir_loc = getcwd() + '\\Audio\\'
         else:
             utils.adv_print('The current OS is not defined!', ['RED'])
-            exit(1)
+            utils.exit(1)
         # If the Audio dir does not exist
         if not isdir(audio_dir_loc):
             makedirs(audio_dir_loc)
@@ -115,16 +115,16 @@ class Teacher:
             except ValueError:
                 utils.adv_print('The entered language code is not defined!',
                                 ['RED'])
-                exit(1)
+                utils.exit(1)
             audio_file.save(audio_file_loc)
         # If the file is created but the data stored is 0
-        # This can occur when the internet connection is lost ??????????????????????????????????????????????????????????????????????
+        # This can occur when the internet connection is lost
         if getsize(audio_file_loc) == 0:
             utils.adv_print('The audio file is empty: {}'.format(
                 audio_file_loc), ['RED'])
             utils.adv_print('Remove the file before running the app again!',
                             ['RED'])
-            exit(1)
+            utils.exit(1)
         # Play the audio file
         playsound(audio_file_loc)
 
