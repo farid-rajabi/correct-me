@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.1 (2024-09-08)
+
+### Fixed
+
+- Fixed the immediate exit upon exception.
+- Fixed the issue with the icon on Windows.
+
 ## 1.3.0 (2024-08-16)
 
 ### Added
