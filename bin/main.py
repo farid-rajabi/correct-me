@@ -13,7 +13,7 @@ try:
         tree = ET.parse('.\\info.xml')
 except FileNotFoundError:
     utils.adv_print('File not found: info.xml', ['RED'])
-    exit(1)
+    utils.exit(1)
 root = tree.getroot()
 
 app_name = root.find('app').findtext('name')
