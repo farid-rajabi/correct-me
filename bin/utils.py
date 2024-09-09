@@ -1,3 +1,4 @@
+import sys
 from os import get_terminal_size
 from platform import system
 import gtts
@@ -73,4 +74,6 @@ def adv_print(
 
 def exit(code: int):
     input('Press Enter to exit...')
-    exit(code)
+    # exit() method results in RecursionError that cannot handle closing all
+    # the subprocesses.
+    sys.exit(code)
