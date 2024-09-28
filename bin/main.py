@@ -5,6 +5,7 @@ import utils as utils
 import vercheck as vercheck
 
 OS = system()
+SETTINGS = utils.load_settings()
 
 try:
     if OS == 'Linux':
@@ -48,9 +49,10 @@ elif OS == 'Windows':
     print('Open-source and free, available on GitHub: {}'.format(app_repo))
     print('Written by {} ({}).'.format(dev_name, dev_github))
 
-utils.splitter()
-ver_checker = vercheck.VerCheck()
-ver_checker.version_banner()
+if SETTINGS.get('check_update', 1):
+    utils.splitter()
+    ver_checker = vercheck.VerCheck()
+    ver_checker.version_banner()
 utils.splitter2()
 utils.attention_banner()
 utils.splitter()
