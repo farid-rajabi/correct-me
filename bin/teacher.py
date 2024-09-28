@@ -12,12 +12,22 @@ class Teacher:
         self
     ) -> None:
         self.OS = system()
+        self.settings = utils.load_settings()
         self.items_list = self.load_file()
 
     def load_file(self) -> list[str]:
+        # Show history
+        self.show_history()
         # A list to store each line as its elements
         items = []
         self.file_loc = input('Enter the path: ')
+        # Find the file location if it is selected from the history
+        try:
+            self.file_loc = int(self.file_loc)
+            with open(file='./history.log', mode='r') as file:
+                self.file_loc = file.readlines()[self.file_loc].rstrip()
+        except ValueError:
+            pass
         utils.splitter()
         utils.supported_langs()
         self.file_lang = input('Enter the language tag: ')
@@ -35,6 +45,9 @@ class Teacher:
             utils.exit(0)
         utils.splitter()
         utils.adv_print('The file is loaded...', ['CYAN'])
+        if self.settings.get('save_history', 1):
+            with open(file='./history.log', mode='a') as file:
+                file.write(self.file_loc + '\n')
         utils.splitter2()
         return items
 
@@ -146,3 +159,16 @@ class Teacher:
                 utils.adv_print('The created file not found!',
                                 ['RED'])
                 continue
+
+    def show_history(self):
+        try:
+            with open(file='./history.log', mode='r') as file:
+                items = [item.rstrip() for item in file][1:6]
+                if len(items) != 0:
+                    print('History:')
+                    for n, item in enumerate(items):
+                        print('[{:.0f}]\t{}'.format(n+1, item))
+        except FileNotFoundError:
+            utils.splitter()
+            utils.adv_print('File not found: history.log', ['RED'])
+            utils.exit(1)
