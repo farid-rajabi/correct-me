@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.4.0 (2024-09-28)
+
+### Added
+
+- **Feature**: Added settings accessible through *CorrectMeSettings*.
+- **Feature**: Added used files history.
+
+### Fixed
+
+- Fixed the never-ending exit loop.
+
 ## 1.3.1 (2024-09-08)
 
 ### Fixed
