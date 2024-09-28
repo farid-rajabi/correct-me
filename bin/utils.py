@@ -77,3 +77,14 @@ def exit(code: int):
     # exit() method results in RecursionError that cannot handle closing all
     # the subprocesses.
     sys.exit(code)
+
+
+def load_settings() -> dict:
+    with open('./CorrectMeSettings.ini', mode='r', ) as file:
+        lines = file.readlines()
+        settings = dict()
+        for line in lines:
+            if line[0] != '#':
+                settings[line[:line.index('=')]] = int(
+                    line[line.index('=') + 1])
+    return settings
