@@ -1,4 +1,8 @@
-# CORRECT ME! [![GitHub Release](https://img.shields.io/github/v/release/farid-rajabi/correct-me)](https://github.com/farid-rajabi/correct-me/releases/latest)
+<p align="center">
+<img src="./repo-banner.jpg" alt="App icon"/>
+</p>
+
+# Correct Me! [![GitHub Release](https://img.shields.io/github/v/release/farid-rajabi/correct-me)](https://github.com/farid-rajabi/correct-me/releases/latest)
 
 [![GitHub License](https://img.shields.io/github/license/farid-rajabi/correct-me)](https://github.com/farid-rajabi/correct-me/blob/main/LICENSE)
 
@@ -161,9 +165,3 @@ Do what follows to solve the problem:
 2.  Try `pip install playsound` again.
 
 Thanks to [Christopher](https://stackoverflow.com/a/77231478/14265483).
-
-## Test Results
-
-| Version | Configurations | Result |
-| --- | --- | --- |
-| 1.3.1 | ![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04.4_LTS-E95420?logo=ubuntu) ![Python](https://img.shields.io/badge/Python-3.10.12-3776AB?logo=python) ![GNU Bash](https://img.shields.io/badge/GNU_Bash-5.1.16-4EAA25?logo=gnubash) ![gTTS](https://img.shields.io/badge/gTTS-2.5.1-blue) ![playsound](https://img.shields.io/badge/playsound-1.3.0-blue) | ![Result](https://img.shields.io/badge/Passed-green) |
